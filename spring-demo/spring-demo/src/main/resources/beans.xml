@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- services -->
+    <!-- 自动扫描器 -->
+    <context:component-scan base-package="com.gyd.springdemo.aop"/>
+
+    <!--配置Aspectj的自动代理-->
+    <aop:aspectj-autoproxy/>
+
+    <!--Aspectj 基于xml配置AOP-->
+<!--    &lt;!&ndash;目标业务对象&ndash;&gt;-->
+<!--    <bean id="myBean" class="com.gyd.springdemo.aop.MyBean"></bean>-->
+<!--    &lt;!&ndash;切面Aspect&ndash;&gt;-->
+<!--    <bean id="myLogAdviceBean" class="com.gyd.springdemo.aop.aspectj.MyLogAdvice"></bean>-->
+<!--    &lt;!&ndash;使用Aspectj实现切面，使用Spring AOP的方式进行配置&ndash;&gt;-->
+<!--    <aop:config>-->
+<!--        &lt;!&ndash;配置切面&ndash;&gt;-->
+<!--        <aop:aspect ref="myLogAdviceBean">-->
+<!--            &lt;!&ndash;定义切点Pointcut：通过expression表达式，查找特定的方法作为切点&ndash;&gt;-->
+<!--            <aop:pointcut id="pointcut" expression="execution(* com.gyd.springdemo.aop.MyBean.hello())"/>-->
+
+<!--            &lt;!&ndash;配置前置通知 before advice&ndash;&gt;-->
+<!--            <aop:before method="beforeAdvice" pointcut-ref="pointcut"/>-->
+
+<!--            &lt;!&ndash;配置后置通知 after advice和after returning advice&ndash;&gt;-->
+<!--            <aop:after-returning returning="returnVal" method="afterReturningAdvice" pointcut-ref="pointcut"/>-->
+<!--            <aop:after method="afterAdvice" pointcut-ref="pointcut"/>-->
+
+<!--            &lt;!&ndash;配置异常通知&ndash;&gt;-->
+<!--            <aop:after-throwing throwing="ex" method="throwAdvice" pointcut-ref="pointcut"/>-->
+
+<!--            <aop:around method="aroundAdvice" pointcut-ref="pointcut"/>-->
+<!--        </aop:aspect>-->
+<!--    </aop:config>-->
+
+    <!--################Spring自带的AOP实现方式######################-->
+<!--    &lt;!&ndash;切入点Pointcut&ndash;&gt;-->
+<!--    <bean id="logAdviceBean" class="com.gyd.springdemo.aop.LogAdvice"></bean>-->
+<!--    &lt;!&ndash;通知Advice&ndash;&gt;-->
+<!--    <bean id="createMethodPointcutBean" class="org.springframework.aop.support.JdkRegexpMethodPointcut">-->
+<!--        <property name="pattern" value="*.hello*"/>-->
+<!--    </bean>-->
+<!--    &lt;!&ndash;创建自动代理&ndash;&gt;-->
+<!--    <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">-->
+<!--        &lt;!&ndash;Bean名称规则(数组)：指定那些bean创建自动代理&ndash;&gt;-->
+<!--        <property name="beanNames">-->
+<!--            <list>-->
+<!--                <value>myBean</value>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--        &lt;!&ndash;通知列表：需要执行那些通知&ndash;&gt;-->
+<!--        <property name="interceptorNames">-->
+<!--            <list>-->
+<!--                <value>logAdviceBean</value>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+</beans>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<body>
+<h1>The Show Page</h1>
+<table>
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>age</th>
+        <th>salary</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="l:${list}">
+        <td th:text="${l}">1</td>
+        <td th:text="${l}">Tom</td>
+        <td th:text="${l}">18</td>
+        <td th:text="${l}">5000.0</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
