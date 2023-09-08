@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
-@MapperScan("com.gyd.springboothello.mapper")
+//@MapperScan("com.gyd.springboothello.mapper")
 public class SpringbootHelloApplication  {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootHelloApplication.class, args);
