@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+    var websocket=null
+    if('WebSocket' in window){
+        //调用service请求,获取信息
+        topic=new WebSocket("ws://localhost:8082/websocket");
+    }else{
+        alert("该浏览器不支持WebSocket!")
+    }
+
+    topic.onopen=function(event){
+        console.log("建立连接!");
+    }
+
+
+    topic.onclose=function(event){
+        console.log("连接关闭!");
+    }
+
+    topic.onmessage=function(event){
+        console.log("收到消息!"+event.data);
+        document.getElementById("info").textContent +=event.data;
+        //弹窗提醒
+    }
+
+    topic.onerror=function(){
+        alert("websocket发生错误!");
+    }
+
+    topic.onbeforeunload=function(){
+        topic.close();
+    }
+</script>
+<h4>您好</h4>
+    <span id="info"></span>
+</body>
+</html>
