@@ -1,6 +1,7 @@
 package com.gyd.contoller;
 
 
+import com.gyd.util.RedisUtil;
 import com.gyd.websocket.WebSocketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +22,9 @@ public class WebSocketTestController {
     @Autowired
     private WebSocketService webSocketService;
 
+    @Autowired
+    private RedisUtil redisUtil;
+
     /**
      * 跳转thymeleaf模板路径
      *
@@ -39,6 +43,17 @@ public class WebSocketTestController {
     @RequestMapping("/createOrder")
     public @ResponseBody String createOrder() {
         webSocketService.sendMessage("你有新的订单，请及时处理========>" + UUID.randomUUID());
+        return "新增订单成功!";
+    }
+
+    /**
+     * 模拟创建订单，通过redis的发布订阅  发送消息到客户端
+     *
+     * @return
+     */
+    @RequestMapping("/createOrderAsync")
+    public @ResponseBody String createOrderAsync() {
+        redisUtil.publish("websocket","订阅：你有新的订单，请及时处理========>" + UUID.randomUUID());
         return "新增订单成功!";
     }
 }

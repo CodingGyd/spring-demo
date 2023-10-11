@@ -6,38 +6,37 @@
 </head>
 <body>
 <script type="text/javascript">
-    var websocket=null
+    var websocket=null;
     if('WebSocket' in window){
-        //调用service请求,获取信息
+        //实现化WebSocket对象，指定要连接的服务器地址与端口  建立连接
         topic=new WebSocket("ws://localhost:8082/websocket");
     }else{
         alert("该浏览器不支持WebSocket!")
     }
-
+    //打开事件
     topic.onopen=function(event){
         console.log("建立连接!");
     }
-
-
+    //关闭事件
     topic.onclose=function(event){
         console.log("连接关闭!");
     }
-
+    //获得消息事件
     topic.onmessage=function(event){
         console.log("收到消息!"+event.data);
         document.getElementById("info").textContent +=event.data;
         //弹窗提醒
     }
-
+    //发生了错误事件
     topic.onerror=function(){
         alert("websocket发生错误!");
     }
-
+    //浏览器窗口关闭或者刷新事件
     topic.onbeforeunload=function(){
         topic.close();
     }
 </script>
 <h4>您好</h4>
-    <span id="info"></span>
+<span id="info"></span>
 </body>
 </html>

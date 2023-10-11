@@ -2,19 +2,15 @@ package com.gyd.websocket;
 
 import org.springframework.stereotype.Component;
 
-import javax.websocket.OnClose;
-import javax.websocket.OnMessage;
-import javax.websocket.OnOpen;
-import javax.websocket.Session;
+import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
-import java.io.IOException;
 import java.util.concurrent.CopyOnWriteArraySet;
 
 @Component
 @ServerEndpoint("/websocket")
-
 public class WebSocketService {
     private Session session;
+
 
     //保存连接
     private static CopyOnWriteArraySet<WebSocketService> webSocketService = new CopyOnWriteArraySet<>();
@@ -59,4 +55,11 @@ public class WebSocketService {
         }
     }
 
+    /**
+     * 传输消息错误触发事件
+     */
+    @OnError
+    public void onError(Throwable error) {
+
+    }
 }
