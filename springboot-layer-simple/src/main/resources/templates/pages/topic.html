@@ -9,7 +9,8 @@
     var websocket=null;
     if('WebSocket' in window){
         //实现化WebSocket对象，指定要连接的服务器地址与端口  建立连接
-        topic=new WebSocket("ws://localhost:8082/websocket");
+        // topic=new WebSocket("ws://localhost:8082/websocket");
+        topic=new WebSocket("ws://localhost:8096/ccos-emergency-command/sk/eventBB/progress?event_code=xxxxx");
     }else{
         alert("该浏览器不支持WebSocket!")
     }
