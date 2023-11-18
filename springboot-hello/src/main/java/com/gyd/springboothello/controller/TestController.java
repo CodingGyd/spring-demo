@@ -24,15 +24,6 @@ public class TestController {
     public String findAll(Model model) {
         List<String> lists = loadDbData();
         model.addAttribute("list", lists);
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while(1==1){
-                    System.out.println("======");
-
-                }
-            }
-        }).start();
         System.out.println("main====");
         return "main";
 
