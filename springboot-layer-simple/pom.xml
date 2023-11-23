@@ -92,6 +92,11 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.62</version>
         </dependency>
-
+        <!--自定义接口加解密组件-->
+        <dependency>
+            <groupId>com.gyd</groupId>
+            <artifactId>encrypt-springboot-starter</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 </project>

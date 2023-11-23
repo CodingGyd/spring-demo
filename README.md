@@ -19,3 +19,7 @@ springboot的入门程序(http接口访问)
 
 ## gyd-starter-user
 在业务开发中使用自己定义的Starter（gyd-starter-log）
+
+## encrypt-springboot-starter
+
+springboot接口出入参加解密拦截解析功能
