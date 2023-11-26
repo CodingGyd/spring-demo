@@ -1,4 +1,4 @@
-package com.gyd.encrypt;
+package com.gyd.encrypt.v1;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

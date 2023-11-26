@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.gyd</groupId>
 	<artifactId>encrypt-springboot-starter</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>encrypt-springboot-starter</name>
 	<packaging>jar</packaging>
 	<description>加解密算法组件</description>
@@ -30,7 +30,17 @@
 			<artifactId>spring-boot-configuration-processor</artifactId>
 			<optional>true</optional>
 		</dependency>
-
+		<!--aop 面向切面看，拦截请求 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
+		<!-- BouncyCastleProvider -->
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk18on</artifactId>
+			<version>1.76</version>
+		</dependency>
 	</dependencies>
 
 <!--	<build>-->

@@ -1,9 +1,9 @@
-package com.gyd.contoller;
+package com.gyd.controller;
 
 import com.gyd.dto.User;
-import com.gyd.encrypt.Decrypt;
-import com.gyd.encrypt.Encrypt;
-import com.gyd.encrypt.RespBean;
+import com.gyd.encrypt.annotation.Decrypt;
+import com.gyd.encrypt.annotation.Encrypt;
+import com.gyd.encrypt.v1.RespBean;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 /**
- * @ClassName UserController
+ * @ClassName AES对称加密示例
  * @Description 接口示例
  * @Author guoyading
  * @Date 2023/9/5 9:12
@@ -22,8 +22,8 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/user2")
-@Api(tags="用户数据操作相关接口(加解密测试)")
-public class EncryptController {
+@Api(tags="用户数据操作相关接口(AES加解密测试)")
+public class AESEncryptController {
 
     @ApiOperation("新增用户接口")
     @PostMapping("/save")

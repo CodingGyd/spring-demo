@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.gyd.encrypt.EncryptAutoConfiguration
+com.gyd.encrypt.v1.EncryptAutoConfiguration

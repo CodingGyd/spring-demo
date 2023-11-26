@@ -1,4 +1,4 @@
-package com.gyd.contoller;
+package com.gyd.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;

@@ -1,4 +1,4 @@
-package com.gyd.contoller;
+package com.gyd.controller;
 
 
 import com.gyd.util.RedisUtil;
