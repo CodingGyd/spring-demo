@@ -1,9 +1,9 @@
 package com.gyd.controller;
 
 import com.gyd.dto.User;
+import com.gyd.encrypt.ResultWrapper;
 import com.gyd.encrypt.annotation.Decrypt;
 import com.gyd.encrypt.annotation.Encrypt;
-import com.gyd.encrypt.v1.RespBean;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -27,19 +27,20 @@ public class AESEncryptController {
 
     @ApiOperation("新增用户接口")
     @PostMapping("/save")
-    public User save(@ApiParam @RequestBody @Decrypt User data){
-        return data;
+    @Decrypt
+    public ResultWrapper<User> save(@ApiParam @RequestBody User data){
+        return ResultWrapper.SUCCESS(data);
     }
 
     @ApiOperation("查询用户接口")
     @PostMapping("/query")
     @Encrypt
-    public RespBean query(){
+    public ResultWrapper<User> query(){
         User user = new User();
         user.setId(1);
         user.setUsername("张三");
 
-        return RespBean.ok("ok",user);
+        return ResultWrapper.SUCCESS(user);
     }
 
 }
